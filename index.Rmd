@@ -1,0 +1,43 @@
+---
+title: "A test dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+a <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_point()
+
+ggplotly(a)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) +
+  geom_point()
+```
+
+### Chart C
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
+  geom_smooth()
+```
+
